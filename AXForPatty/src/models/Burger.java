@@ -33,13 +33,13 @@ public class Burger {
 		System.out.printf("%10s: IDR %d\n", "Price", price);
 	}
 	
-	public void purchaseBurger(int money) {
-		if(money > price) {
+	public void purchaseBurger(Rupiah rupiah) {
+		if(rupiah.getAmount() > price) {
 			System.out.println("Thankyou for your purchase!");
-			System.out.printf("Your return is: IDR %d\n", money - price);
-		} else if(money < price) {
+			System.out.printf("Your return is: %s %d\n", rupiah.getName(), rupiah.getAmount() - price);
+		} else if(rupiah.getAmount() < price) {
 			System.out.println("Sorry, that wasn't enough.");
-			System.out.printf("You lack: IDR %d\n", price - money);
+			System.out.printf("You lack: %s %d\n", rupiah.getName(), price - rupiah.getAmount());
 		} else {
 			System.out.println("Thankyou for your purchase!");
 		}
