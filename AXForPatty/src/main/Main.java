@@ -2,8 +2,10 @@ package main;
 
 import models.Burger;
 import models.Restaurant;
+import models.Rupiah;
 import modules.BurgerBuilder;
 import modules.GetInput;
+import modules.RupiahAdapter;
 
 public class Main {
 	private GetInput in;
@@ -57,7 +59,31 @@ public class Main {
 	
 	private void menuView() {
 		String opts[] = {"IDR", "SGD", "MYR"};
-		
+		String opt = in.getOptsMsg("Input the currency you're using [IDR | SGD | MYR]: ", opts);
+		RupiahAdapter currency = new RupiahAdapter();
+		switch (opt) {
+		case "IDR":{
+			restaurant.viewAllBurgerWCurse(new Rupiah());
+			break;
+		}
+		case "SGD": {
+			currency.setSGD();
+			restaurant.viewAllBurgerWCurse(currency);
+			break;
+		}
+		case "MYR": {
+			currency.setMYR();
+			restaurant.viewAllBurgerWCurse(currency);
+			break;
+		}
+		default: {
+			break;
+		}
+		}
+	}
+	
+	private boolean menuExit() {
+		return false;
 	}
 	
 	private void menuHome() {
@@ -75,11 +101,11 @@ public class Main {
 				break;
 			}
 			case 2: {
-				
+				menuView();
 				break;
 			}
 			default: {
-				
+				run = menuExit();
 				break;
 			}
 			

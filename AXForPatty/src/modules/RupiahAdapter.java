@@ -5,8 +5,8 @@ import models.Rupiah;
 public class RupiahAdapter extends Rupiah{
 	private double multiplier;
 	
-	public RupiahAdapter(int amount) {
-		super(amount);
+	public RupiahAdapter() {
+		super();
 		this.multiplier = 1;
 	}
 	
@@ -17,12 +17,12 @@ public class RupiahAdapter extends Rupiah{
 	
 	public void setSGD() {
 		this.setName("SGD");
-		this.setMultiplier(1/10719);
+		this.setMultiplier((double)1/4);
 	}
 	
 	public void setMYR() {
 		this.setName("MYR");
-		this.setMultiplier(1/3399);
+		this.setMultiplier((double)1/2);
 	}
 
 	public double getMultiplier() {

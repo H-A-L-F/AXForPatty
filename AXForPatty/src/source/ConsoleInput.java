@@ -29,7 +29,7 @@ public class ConsoleInput extends Input{
 	public int getIntWMSG(String msg, int min, int max) {
 		int res = -1;
 		do {
-			System.out.println(msg);
+			System.out.printf(msg);
 			try {
 				res = in.nextInt();
 			} catch (Exception e) {
@@ -44,7 +44,7 @@ public class ConsoleInput extends Input{
 	public boolean getBoolFromCharWMSG(String msg, char yes, char no) {
 		char ch;
 		do {
-			System.out.println(msg);
+			System.out.printf(msg);
 			ch = in.next().charAt(0);
 		} while (ch != yes && ch != no);
 		return ch == yes;
@@ -66,10 +66,24 @@ public class ConsoleInput extends Input{
 		String res = "";
 		int len = res.length();
 		do {
-			System.out.println(msg);
+			System.out.printf(msg);
 			res = in.nextLine();
 			len = res.length();
 		} while (len < min || len > max);
+		return res;
+	}
+
+	@Override
+	public String getOptsStrWMSG(String msg, String[] opts) {
+		String res = "";
+		boolean flag = true;
+		while(flag) {
+			System.out.printf(msg);
+			res = in.nextLine();
+			for (String opt : opts) {
+				if(res.equals(opt)) flag = false;
+			}
+		}
 		return res;
 	}
 }

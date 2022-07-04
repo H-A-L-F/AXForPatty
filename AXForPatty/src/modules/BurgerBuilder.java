@@ -52,6 +52,6 @@ public class BurgerBuilder {
 	public Burger getBurger() {
 		Burger temp = this.burger;
 		this.reset();
-		return temp;t
+		return temp;
 	}
 }

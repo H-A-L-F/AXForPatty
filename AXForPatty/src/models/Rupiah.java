@@ -1,8 +1,14 @@
 package models;
 
-public abstract class Rupiah {
+public class Rupiah {
 	private String name;
 	private int amount;
+	
+	public Rupiah() {
+		super();
+		this.name = "IDR";
+		this.amount = 0;
+	}
 	
 	public Rupiah(int amount) {
 		super();

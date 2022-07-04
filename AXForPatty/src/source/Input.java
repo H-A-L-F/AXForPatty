@@ -16,4 +16,6 @@ abstract public class Input {
 	public abstract String getStr(int min, int max);
 	
 	public abstract String getStrWMSG(String msg, int min, int max);
+	
+	public abstract String getOptsStrWMSG(String msg, String opts[]);
 }

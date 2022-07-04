@@ -21,4 +21,8 @@ public class GetInput {
 	public String getStrMsg(String msg, int min, int max) {
 		return in.getStrWMSG(msg, min, max);
 	}
+	
+	public String getOptsMsg(String msg, String opts[]) {
+		return in.getOptsStrWMSG(msg, opts);
+	}
 }

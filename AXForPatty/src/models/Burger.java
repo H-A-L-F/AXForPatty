@@ -1,7 +1,5 @@
 package models;
 
-import modules.RupiahAdapter;
-
 public class Burger {
 	private int patty;
 	private int cheese;
@@ -25,7 +23,8 @@ public class Burger {
 	}
 
 	public void viewBurger(Rupiah rupiah) {
-		System.out.printf("=======================");
+		rupiah.setAmount(this.getPrice());
+		System.out.printf("=======================\n");
 		System.out.printf("%10s: %s\n", "Name", name);
 		System.out.printf("%10s: %d\n", "Bun", bun);
 		System.out.printf("%10s: %d\n", "Pattty", patty);
@@ -74,11 +73,8 @@ public class Burger {
 	}
 
 	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
 		this.price = (patty * 10000) + (cheese * 5000) + (bun * 2000);
+		return price;
 	}
 
 	public boolean isVegetable() {
