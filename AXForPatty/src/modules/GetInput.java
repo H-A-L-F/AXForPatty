@@ -1,20 +1,20 @@
 package modules;
 
+import source.ConsoleInput;
 import source.Input;
 
 public class GetInput {
 	private Input in;
 	
-	public GetInput(Input in) {
-		this.in = in;
+	public GetInput() {
+		this.in = new ConsoleInput();
 	}
 	
 	public int getInMsg(String msg, int min, int max) {
-		int res = 0;
-		do {
-			System.out.printf(msg);
-			res = in.getInt(min, max);
-		} while (res < min || res > max);
-		return res;
+		return in.getIntWMSG(msg, min, max);
+	}
+	
+	public boolean getBoolFromCharMsg(String msg, char yes, char no) {
+		return in.getBoolFromCharWMSG(msg, yes, no);
 	}
 }

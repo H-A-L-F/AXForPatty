@@ -1,5 +1,7 @@
 package models;
 
+import modules.RupiahAdapter;
+
 public class Burger {
 	private int patty;
 	private int cheese;
@@ -22,7 +24,7 @@ public class Burger {
 		this.name = "AXBurPatt";
 	}
 
-	public void viewBurger() {
+	public void viewBurger(RupiahAdapter rupiah) {
 		System.out.printf("%10s: %s\n", "Name", name);
 		System.out.printf("%10s: %d\n", "Bun", bun);
 		System.out.printf("%10s: %d\n", "Pattty", patty);
@@ -30,7 +32,7 @@ public class Burger {
 		System.out.printf("%10s: %s\n", "Vegetable", vegetable ? "included" : "not included");
 		System.out.printf("%10s: %s\n", "Pickle", pickle ? "included" : "not included");
 		System.out.printf("%10s: %s\n", "Smash", smash ? "smash burger" : "normal burger");
-		System.out.printf("%10s: IDR %d\n", "Price", price);
+		System.out.printf("%10s: %s %d\n", "Price", rupiah.getName(), rupiah.getAmount());
 	}
 	
 	public void purchaseBurger(Rupiah rupiah) {

@@ -1,6 +1,6 @@
 package models;
 
-public class Rupiah {
+public abstract class Rupiah {
 	private String name;
 	private int amount;
 	

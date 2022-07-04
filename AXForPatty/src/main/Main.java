@@ -7,7 +7,7 @@ public class Main {
 	private GetInput in;
 	
 	public Main() {
-		in = new GetInput(new ConsoleInput());
+		in = new GetInput();
 		menuHome();
 	}
 	
@@ -35,13 +35,23 @@ public class Main {
 		return in.getInMsg(">> ", 1, 3);
 	}
 	
-	private void menuHome() {
-		clear();
-		printTitle();
+	private void menuCustom() {
+		int patty = in.getInMsg("Amount of patties [1..5]: ", 1, 5);
+		int cheese = in.getInMsg("Slice of cheese [1..5]: ", 1, 5);
+		int bun = in.getInMsg("Amount of buns [1..5]:", 1, 5);
+		boolean vegetable = in.getBoolFromCharMsg("Include vegies [Y|N]: ", 'Y', 'N');
+		boolean pickle = in.getBoolFromCharMsg("Include pickles [Y|N]: ", 'Y', 'N');
+		boolean smash = in.getBoolFromCharMsg("Smash burger [Y|N]: ", 'Y', 'N');
 		
+	}
+	
+	private void menuHome() {
 		boolean run = true;
 		int opt;
+		
 		while (run) {
+			clear();
+			printTitle();
 			opt = optHome();
 			
 			switch (opt) {
