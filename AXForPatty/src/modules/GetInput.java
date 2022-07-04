@@ -17,4 +17,8 @@ public class GetInput {
 	public boolean getBoolFromCharMsg(String msg, char yes, char no) {
 		return in.getBoolFromCharWMSG(msg, yes, no);
 	}
+	
+	public String getStrMsg(String msg, int min, int max) {
+		return in.getStrWMSG(msg, min, max);
+	}
 }

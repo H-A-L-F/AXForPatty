@@ -24,7 +24,8 @@ public class Burger {
 		this.name = "AXBurPatt";
 	}
 
-	public void viewBurger(RupiahAdapter rupiah) {
+	public void viewBurger(Rupiah rupiah) {
+		System.out.printf("=======================");
 		System.out.printf("%10s: %s\n", "Name", name);
 		System.out.printf("%10s: %d\n", "Bun", bun);
 		System.out.printf("%10s: %d\n", "Pattty", patty);
@@ -33,6 +34,7 @@ public class Burger {
 		System.out.printf("%10s: %s\n", "Pickle", pickle ? "included" : "not included");
 		System.out.printf("%10s: %s\n", "Smash", smash ? "smash burger" : "normal burger");
 		System.out.printf("%10s: %s %d\n", "Price", rupiah.getName(), rupiah.getAmount());
+		System.out.println("=======================");
 	}
 	
 	public void purchaseBurger(Rupiah rupiah) {
@@ -45,5 +47,69 @@ public class Burger {
 		} else {
 			System.out.println("Thankyou for your purchase!");
 		}
+	}
+
+	public int getPatty() {
+		return patty;
+	}
+
+	public void setPatty(int patty) {
+		this.patty = patty;
+	}
+
+	public int getCheese() {
+		return cheese;
+	}
+
+	public void setCheese(int cheese) {
+		this.cheese = cheese;
+	}
+
+	public int getBun() {
+		return bun;
+	}
+
+	public void setBun(int bun) {
+		this.bun = bun;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = (patty * 10000) + (cheese * 5000) + (bun * 2000);
+	}
+
+	public boolean isVegetable() {
+		return vegetable;
+	}
+
+	public void setVegetable(boolean vegetable) {
+		this.vegetable = vegetable;
+	}
+
+	public boolean isPickle() {
+		return pickle;
+	}
+
+	public void setPickle(boolean pickle) {
+		this.pickle = pickle;
+	}
+
+	public boolean isSmash() {
+		return smash;
+	}
+
+	public void setSmash(boolean smash) {
+		this.smash = smash;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

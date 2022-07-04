@@ -10,9 +10,15 @@ public class Restaurant {
 		this.burgers = new ArrayList<Burger>();
 	}
 	
-	public Restaurant getRestaurantInstance() {
+	public static Restaurant getRestaurantInstance() {
 		if(restaurantInstance == null) restaurantInstance = new Restaurant();
 		return restaurantInstance;
+	}
+	
+	public void viewAllBurgerWCurse(Rupiah rupiah) {
+		for (Burger burger : burgers) {
+			burger.viewBurger(rupiah);
+		}
 	}
 	
 	public void addBurger(Burger burger) {

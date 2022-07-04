@@ -1,13 +1,17 @@
 package main;
 
+import models.Burger;
+import models.Restaurant;
+import modules.BurgerBuilder;
 import modules.GetInput;
-import source.ConsoleInput;
 
 public class Main {
 	private GetInput in;
+	private Restaurant restaurant;
 	
 	public Main() {
-		in = new GetInput();
+		this.in = new GetInput();
+		this.restaurant = Restaurant.getRestaurantInstance();
 		menuHome();
 	}
 	
@@ -35,13 +39,24 @@ public class Main {
 		return in.getInMsg(">> ", 1, 3);
 	}
 	
+	private boolean promptCustomize(String type) {
+		return in.getBoolFromCharMsg("Do you want to customize the " + type + " [Y|N]:", 'Y', 'N');
+	}
+	
 	private void menuCustom() {
-		int patty = in.getInMsg("Amount of patties [1..5]: ", 1, 5);
-		int cheese = in.getInMsg("Slice of cheese [1..5]: ", 1, 5);
-		int bun = in.getInMsg("Amount of buns [1..5]:", 1, 5);
-		boolean vegetable = in.getBoolFromCharMsg("Include vegies [Y|N]: ", 'Y', 'N');
-		boolean pickle = in.getBoolFromCharMsg("Include pickles [Y|N]: ", 'Y', 'N');
-		boolean smash = in.getBoolFromCharMsg("Smash burger [Y|N]: ", 'Y', 'N');
+		BurgerBuilder burgerBuilder = new BurgerBuilder(new Burger());
+		if(promptCustomize("patty")) burgerBuilder.setPatty(in.getInMsg("Amount of patties [1..5]: ", 1, 5));
+		if(promptCustomize("cheese")) burgerBuilder.setCheese(in.getInMsg("Slice of cheese [1..5]: ", 1, 5));
+		if(promptCustomize("bun")) burgerBuilder.setBun(in.getInMsg("Amount of buns [1..5]:", 1, 5));
+		if(promptCustomize("vegetable")) burgerBuilder.setVegetable(in.getBoolFromCharMsg("Include vegies [Y|N]: ", 'Y', 'N'));
+		if(promptCustomize("pickle")) burgerBuilder.setPickle(in.getBoolFromCharMsg("Include pickles [Y|N]: ", 'Y', 'N'));
+		if(promptCustomize("smash")) burgerBuilder.setSmash(in.getBoolFromCharMsg("Smash burger [Y|N]: ", 'Y', 'N'));
+		if(promptCustomize("name")) burgerBuilder.setName(in.getStrMsg("Insert the name of your burger [1..30]", 1, 30));
+		restaurant.addBurger(burgerBuilder.getBurger());
+	}
+	
+	private void menuView() {
+		String opts[] = {"IDR", "SGD", "MYR"};
 		
 	}
 	
@@ -56,10 +71,11 @@ public class Main {
 			
 			switch (opt) {
 			case 1: {
-				
+				menuCustom();
 				break;
 			}
 			case 2: {
+				
 				break;
 			}
 			default: {
