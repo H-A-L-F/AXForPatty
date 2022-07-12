@@ -8,6 +8,8 @@ public class Main {
 	
 	public Main() {
 		this.in = new ConsoleInput();
+		
+		menuHome();
 	}
 	
 	private void printTitle() {
@@ -54,6 +56,6 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		
+		new Main();
 	}
 }
