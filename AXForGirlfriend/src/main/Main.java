@@ -1,6 +1,9 @@
 package main;
 
+import models.Girlfriend;
+import models.Player;
 import modules.Input;
+import modules.PlayerAi;
 import source.ConsoleInput;
 
 public class Main {
@@ -40,19 +43,36 @@ public class Main {
 			
 			switch (opt) {
 			case 1: {
-				
+				menuPlay();
 				break;
 			}
 			case 2: {
-				
+				menuTutorial();
 				break;
 			}
 			default: {
-				
+				run = false;
 				break;
 			}
 			}
 		}
+	}
+	
+	private void menuPlay() {
+		boolean playing = true;
+		
+		PlayerAi player = new Player();
+		PlayerAi girlfriend = new Girlfriend();
+		
+		
+		while (playing) {
+			String res = player.run("");
+			if(girlfriend.run(res).equals("done")) break;
+		}
+	}
+	
+	private void menuTutorial() {
+		System.out.println("You need to win by");
 	}
 	
 	public static void main(String[] args) {

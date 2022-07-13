@@ -1,24 +1,38 @@
 package models;
 
 import modules.GirlfriendState;
+import modules.PlayerAi;
 import source.GirlfriendStateNormal;
 
-public class Girlfriend {
-	private int day;
+public class Girlfriend extends PlayerAi{
 	private GirlfriendState state;
 	
-	
 	public Girlfriend() {
-		this.day = 1;
-		this.state = new GirlfriendStateNormal();
+		super(0);
+		this.state = new GirlfriendStateNormal(this);
 	}
 	
-	void introduce() {
-		System.out.println("Day: " + day);
-		System.out.println("Yahallooo! What are we doing today?");
+	public void changeState(GirlfriendState newState) {
+		this.state = newState;
+	}
+
+	@Override
+	public void introduction() {
+		state.introduction();
+	}
+
+	@Override
+	public void action() {
+		state.action();
+	}
+
+	@Override
+	public void updateResource(String action) {
+		state.updateResource(action);
 	}
 	
-	void activity() {
-		
+	@Override
+	public String response() {
+		return state.response();
 	}
 }

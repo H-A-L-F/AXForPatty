@@ -5,23 +5,14 @@ import java.util.Random;
 import models.Girlfriend;
 
 public abstract class GirlfriendState {
-	Girlfriend girlfriend;
-	int happinness;
-	String loveLanguages[];
-	int stats[];
+	private Girlfriend girlfriend;
+	private int stats[];
 	
 	public GirlfriendState(Girlfriend girlfriend) {
 		this.girlfriend = girlfriend;
-		this.happinness = 0;
-		this.loveLanguages = new String[5];
 		this.stats = new int[5];
 		
-		generateLoveLanguage();
 		generateStats(10);
-	}
-	
-	public GirlfriendState() {
-		
 	}
 	
 	public void generateStats(int points) {
@@ -35,21 +26,26 @@ public abstract class GirlfriendState {
 				stats[i] = 0;
 			}
 		}
-	}
+	}	
 	
-	public void generateLoveLanguage() {
-		loveLanguages[0] = "Words of Affirmation";
-		loveLanguages[1] = "Physical Touch";
-		loveLanguages[2] = "Quality Time";
-		loveLanguages[3] = "Giving and Receiving";
-		loveLanguages[4] = "Act of Service";
-	}
+	public abstract void introduction();
+	public abstract void action();
+	public abstract void updateResource(String action);
+	public abstract String response();
 	
-	public void printStats() {
-		System.out.println("=== Girlfriend Stats ===");
-		for(int i = 0; i < loveLanguages.length; i++) {
-			System.out.printf("%d. %-20s: %d\n", i, loveLanguages[i], stats[i]);
-		}
-		System.out.println("========================");
+	public Girlfriend getGirlfriend() {
+		return girlfriend;
+	}
+
+	public void setGirlfriend(Girlfriend girlfriend) {
+		this.girlfriend = girlfriend;
+	}
+
+	public int[] getStats() {
+		return stats;
+	}
+
+	public void setStats(int[] stats) {
+		this.stats = stats;
 	}
 }
