@@ -55,9 +55,10 @@ public class GirlfriendStateNormal extends GirlfriendState {
 	public void addHappinness(int points) {
 		getGirlfriend().addResource(points);
 		
+		System.out.println(getGirlfriend().getResource());
 		if(getGirlfriend().getResource() == 0) {
 			getGirlfriend().changeState(new GirlfriendStateAngry(getGirlfriend()));
-		} else if(getGirlfriend().getResource() == 10) {
+		} else if(getGirlfriend().getResource() >= 10) {
 			getGirlfriend().setResource(0);
 			getGirlfriend().changeState(new GirlfriendStateHappy(getGirlfriend()));
 		}

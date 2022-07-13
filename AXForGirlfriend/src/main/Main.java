@@ -68,8 +68,9 @@ public class Main {
 		while (playing) {
 			clear();
 			String res = player.run("");
-			clear();
-			if(girlfriend.run(res).equals("done")) break;
+			if(girlfriend.run(res).equals("done")) {
+				break;
+			}
 		}
 	}
 	

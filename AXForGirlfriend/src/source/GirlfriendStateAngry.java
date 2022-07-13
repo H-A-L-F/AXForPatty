@@ -7,29 +7,26 @@ public class GirlfriendStateAngry extends GirlfriendState {
 
 	public GirlfriendStateAngry(Girlfriend girlfriend) {
 		super(girlfriend);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void introduction() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Hmph!");
 	}
 
 	@Override
 	public void action() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("...");
 	}
 
 	@Override
 	public void updateResource(String action) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Hmph I need no such thing");
 	}
 
 	@Override
 	public String response() {
+		System.out.println("She ghosted you and never came back...");
 		return "done";
 	}
 

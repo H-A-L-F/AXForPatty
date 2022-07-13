@@ -33,6 +33,7 @@ public class Girlfriend extends PlayerAi{
 	
 	@Override
 	public String response() {
-		return state.response();
+		String res = state.response();
+		return res;
 	}
 }

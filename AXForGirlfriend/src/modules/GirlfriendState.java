@@ -2,6 +2,7 @@ package modules;
 
 import java.util.Random;
 
+import models.Actions;
 import models.Girlfriend;
 
 public abstract class GirlfriendState {
@@ -27,6 +28,14 @@ public abstract class GirlfriendState {
 			}
 		}
 	}	
+	
+	public void printStats() {
+		System.out.println("================");
+		for(int i = 0; i < stats.length; i++) {
+			System.out.printf("%s: %d\n", Actions.ACTIONS[i], stats[i]);
+		}
+		System.out.println("================");
+	}
 	
 	public abstract void introduction();
 	public abstract void action();

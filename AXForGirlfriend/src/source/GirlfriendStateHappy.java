@@ -12,25 +12,22 @@ public class GirlfriendStateHappy extends GirlfriendState {
 
 	@Override
 	public void introduction() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("I'm feeling very joly today <3");
 	}
 
 	@Override
 	public void action() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("I brought you a gift!");
 	}
 
 	@Override
 	public void updateResource(String action) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Aww... thankyou darling!");
 	}
 
 	@Override
 	public String response() {
-		// TODO Auto-generated method stub
+		System.out.println("Congrats you have obtained a new girlfriend!");
 		return "done";
 	}
 
