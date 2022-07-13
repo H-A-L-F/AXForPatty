@@ -2,6 +2,7 @@ package models;
 
 import modules.Input;
 import modules.PlayerAi;
+import source.ConsoleInput;
 
 public class Player extends PlayerAi{
 	private int day;
@@ -12,6 +13,7 @@ public class Player extends PlayerAi{
 		super(0);
 		this.day = 0;
 		this.action = "";
+		this.in = new ConsoleInput();
 	}
 	
 	private void printActions() {
