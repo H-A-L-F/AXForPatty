@@ -75,7 +75,10 @@ public class Main {
 	}
 	
 	private void menuTutorial() {
-		System.out.println("You need to win by");
+		System.out.println("In this game you are trying to obtain as many girlfriend as possible");
+		System.out.println("You are able to perform 5 type of actions symbolizing every love language");
+		System.out.println("Every girl is different, thus responds to actions differently");
+		System.out.println("Find a way to make her happy, and make her like you!");
 	}
 	
 	public static void main(String[] args) {

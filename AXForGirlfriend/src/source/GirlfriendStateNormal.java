@@ -16,13 +16,8 @@ public class GirlfriendStateNormal extends GirlfriendState {
 	public void generateStats(int points) {
 		Random rand = new Random();
 		for(int i = 0; i < getStats().length; i++) {
-			if(points > 0) {
-				int temp = rand.nextInt(points);
-				points -= temp;
-				getStats()[i] = temp;
-			} else {
-				getStats()[i] = 0;
-			}
+			int temp = rand.nextInt(5 - (-2)) - 2;
+			getStats()[i] = temp;
 		}
 	}
 	
@@ -31,13 +26,13 @@ public class GirlfriendStateNormal extends GirlfriendState {
 		
 		for(int i = 0; i < Actions.ACTIONS.length; i++) {
 			if(Actions.ACTIONS[i].equals(action)) point = getStats()[i];
-		}
+		}s
 		
-		if(point < 5) {
+		if(point < 0) {
 			System.out.println("Girlfriend  : Hehehe... thankyouu...");
-		} else if(point > 5) {
+		} else if(point >= 0 && point < 3) {
 			System.out.println("Girlfriend  : *GASP* Thankyou, dear.");
-		} else {
+		} else if (point >= 3 && point <= 5){
 			System.out.println("Girlfriend  : *GASP* Thankyou!!!");
 		}
 		
@@ -55,7 +50,6 @@ public class GirlfriendStateNormal extends GirlfriendState {
 	public void addHappinness(int points) {
 		getGirlfriend().addResource(points);
 		
-		System.out.println(getGirlfriend().getResource());
 		if(getGirlfriend().getResource() == 0) {
 			getGirlfriend().changeState(new GirlfriendStateAngry(getGirlfriend()));
 		} else if(getGirlfriend().getResource() >= 10) {
